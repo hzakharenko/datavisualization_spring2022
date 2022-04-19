@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polar Chart</title>
+    <!--Chart.js JS CDN--> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script> 
+    <link rel="stylesheet" href="style.css">
+
+</head>
+  <body>
+
+    <!-- add this container and style to stylesheet to resize the graphic-->
+    <div class="chartContainer">
+        <h1>The bigger the penguin, the bigger the flipper length</h1>
+        <h5>The different types of Penguin species examined in this chart are:
+             Adelie Torgersen, Adelie Biscoe, Chinstrap Dream, Adelie Dream 
+             and Gentoo Biscoe. The larger the species is (body mass) the longer
+             their flipper length is.
+        </h5>
+      <canvas id="myChart"></canvas>
+      <div class="source">Source: https://github.com/ttimbers/palmerpenguins/</div>
+    </div>
+
+    <div class="chartContainer">
+        <h1>Different penguin breeds have equal male/female populations</h1>
+        <h5>The different types of Penguin species examined in this chart are:
+            Adelie Torgersen, Adelie Biscoe, Chinstrap Dream, Adelie Dream 
+            and Gentoo Biscoe. In all the Adelie species that this sample 
+            collected, there was an equal amount of male and female penguins.
+       </h5>
+        <canvas id="doughnut-chart"></canvas>
+        <div class="source">Source: https://github.com/ttimbers/palmerpenguins/</div>
+      </div>
+
+<script src="javascript.js"></script>
+  </body>
+</html>
