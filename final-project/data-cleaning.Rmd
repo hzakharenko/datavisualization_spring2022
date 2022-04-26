@@ -1,0 +1,73 @@
+---
+title: "data-cleaning"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+##Information and Sourcing
+Data for this project used from the NYT COVID data Github[https://github.com/nytimes/covid-19-data] 
+
+Spotify data will be taken from Kaggle for pre-Covid [https://www.kaggle.com/datasets/muhmores/spotify-top-100-songs-of-20152019]
+
+And post COVID (2020-2021): [https://www.kaggle.com/datasets/sashankpillai/spotify-top-200-charts-20202021]
+
+##Data Cleaning
+1. Read in the data from Github and save to CSV files in the data folder
+```{r}
+library (readr)
+
+#US county data for 2020
+urlfile="https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties-2020.csv"
+covid_2020<-read_csv(url(urlfile))
+write.csv(covid_2020, file = 'covid_counties_2020.csv')
+
+
+#US state data up to 4/19
+urlfile="https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv"
+covid_us_states<-read_csv(url(urlfile))
+write.csv(covid_us_states, file = 'covid_states.csv')
+
+
+#US national data updated every day
+urlfile="https://raw.githubusercontent.com/nytimes/covid-19-data/master/rolling-averages/us.csv"
+covid_us<-read_csv(url(urlfile))
+write.csv(covid_us, file = 'covid_us.csv')
+```
+```{r}
+covid_us_states %>%
+  group_by(state) %>%
+  arrange(date) %>%
+  mutate(new_cases = cases - lag(cases, default = first(cases)))
+```
+
+2. Create a new grouping that finds national average for each day
+```{r}
+covid_us %>%
+  group_by(date) %>%
+  summarise(cases = sum(cases))
+#case_totals_by_date <- 
+```
+
+```{r}
+ggplot()+
+  geom_line(data=case_totals_by_date, aes(x=date, y=total_cases))
+```
+
+```{r}
+aggregate(covid_us_states["cases"], by=covid_us_states["date"], sum)
+```
+
+
+write new data to a csv
+```{r}
+write.csv(case_totals_by_date, "case_totals_by_date.csv")
+
+```
+
+
+
+
