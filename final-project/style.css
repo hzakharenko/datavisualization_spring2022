@@ -1,0 +1,33 @@
+.chartContainer {
+    width:800px;
+}
+
+.source{
+    font-family: helvetica, sans-serif;
+    font-size: .75em;
+    margin-left:15px;
+    margin-top:10px;
+    font-style: italic;
+}
+
+#test {
+    width: 1000px;
+    margin: auto;
+}
+
+h1{
+    font-family: 'Palanquin Dark', sans-serif;
+    font-weight: bold;
+    margin: auto;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 65%;
+    height: auto;
+    text-align: center;
+}

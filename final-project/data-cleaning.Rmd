@@ -69,5 +69,25 @@ write.csv(case_totals_by_date, "case_totals_by_date.csv")
 ```
 
 
+weeks charted by tempo
+```{r}
+tempo <- read_csv("data/test.csv")
+```
+
+```{r}
+mean_tempo <- tempo %>%
+  group_by(week) %>%
+  summarise(mean(tempo))
+```
+
+```{r}
+write.csv(mean_tempo, "mean_tempo.csv")
+
+```
+
+
+
+
+
 
 
