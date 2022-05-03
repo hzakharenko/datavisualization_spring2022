@@ -96,6 +96,8 @@ hr{
 
 #test-last {
     padding-bottom: 50px;
+    width: 80%;
+    margin: auto;
 }
 
 #last-text {
